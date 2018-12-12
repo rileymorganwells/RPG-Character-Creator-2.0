@@ -1,0 +1,50 @@
+<html ng-app="myApp">
+  <head>
+    <title>Characters</title>
+    <!-- Angular -->
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.min.js"></script>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <!-- Angular App -->
+    <script src="javascripts/main_controller.js"></script>
+    <script src="javascripts/my_app.js"></script>
+    <!-- Styles -->
+    <link rel="stylesheet" href="stylesheets/style.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quicksand" />
+  </head>
+  <body ng-app="character" ng-controller="MainCtrl">
+    <div ng-controller="myController">
+        <div class="container text-center">
+          <div class="page-header"> 
+            <h1 id="title">Let's Make a Character!</h1>
+            <p id="intro">Welcome to the party, where you're invited to live your unknown dream of being a fantastical, powerful creature.
+              Create a character to see yourself on the front page!
+            </p>
+            <% if (!username) { %>
+                <a href="/login" class="btn btn-primary btn-small">Login</a>
+                <a href="/pickCharacter" class="btn btn-primary btn-small">Create Character</a>
+            <% } %>
+            <!-- <form ng-submit="deleteCharacters()"><button class="btn btn-primary" type="submit">Delete All Characters!</button></form> -->
+          </div>
+          <hr/>
+            <div>
+                <% if (username) { %>
+                    <h4 id="welcomeText">Welcome, you are logged in as
+                        <%= username %>
+                    </h4>
+                    <a id="logoutLink" href="/logout" class="btn btn-primary btn-small">Logout</a>
+                    <a id="editLink" href="/user" class="btn btn-primary btn-small">Edit Profile</a>
+                    <hr/>
+                <% } %>
+            </div>
+            <div ng-app="myApp" ng-controller="myController">
+              <div ng-if="characters.length > 0" class="tiling">
+                <card ng-repeat="character in characters" character="character"></card>
+              </div>
+              <div ng-if="characters.length == 0">
+                <p>It's pretty lonely here.  Create your character now!</p>
+              </div>
+            </div>
+        </div>
+    </div>
+  </body>

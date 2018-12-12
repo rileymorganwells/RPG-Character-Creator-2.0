@@ -1,0 +1,40 @@
+<html>
+<head>
+  <title>Character Profile</title>
+  <!-- Angular -->
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.min.js"></script>
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <!-- Angular App -->
+  <script src="javascripts/main_controller.js"></script>
+  <script src="../javascripts/my_app.js"></script>
+  <!-- Styles -->
+  <link rel="stylesheet" href="stylesheets/style.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quicksand" />
+</head>
+<body ng-app="myApp" ng-controller="myController">
+  <div class="container">
+    <div class="page-header text-center"> 
+      <h1>Welcome to {{character.username}}'s profile!</h1>
+    </div><hr/>
+    <div class="row">
+      <div class="col-md-5 offset-md-1">
+        <img class="createImage" src="images/{{character.characterImage}}">
+      </div>
+      <div class="col-md-4" id="creationForm">
+        <h3><b>{{character.username}}</b></h3>
+        <p><b>Type:</b> {{character.characterType}}</p>
+        <p><b>Weakness:</b> {{character.weakness}}</p>
+        <p>"{{character.characterTagline}}"</p><hr/>
+        <h5><b>{{character.username}}'s Stats</b></h5>
+        <p><b>Attack: </b>{{character.att}}</p>
+        <p><b>Defense: </b>{{character.def}}</p>
+        <p><b>Hitpoints: </b>{{character.hp}}</p>
+        <p><b>Magic: </b>{{character.mag}}</p>
+        <p><b>Ranged: </b>{{character.ranged}}</p>
+      </div>
+    </div>
+    <a href='/' class="btn btn-primary">Back to Homepage</a>
+  </div>
+</body>
+</html>
